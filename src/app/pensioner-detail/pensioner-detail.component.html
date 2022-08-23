@@ -1,0 +1,150 @@
+<!-- <div class="bg-image">
+    <div class="container" align="center" style="padding-left: 25%;">
+        <div>
+            <br>
+            <h2 style="text-align: center;color: violet">Enter Pensioner Details</h2>
+            <br>
+            <form (ngSubmit)="onSubmit()" method="GET" name="pension" id="pension" class="form">
+                <div class="col-md-6" style="text-align: left;color: yellow;">
+                    <div class="form-group">
+                        <input type="text" class="form-control" name="name" formControlName="name"
+                            placeholder="Enter Pensioner Name" required="" />
+                        <div *ngIf="pensionDetails.name == ''">
+                            Name is required.
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" class="form-control" name="panNumber" formControlName="panNumber"
+                            placeholder="Enter PAN Number" required="" />
+                        <div *ngIf="pensionDetails.panNumber == ''">
+                            Pan Number is required.
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" class="form-control" name="adhar" formControlName="aadhaarNumber"
+                            placeholder="Enter Aadhar Number" required="" />
+                        <div *ngIf="pensionDetails.aadhaarNumber == ''">
+                            Aadhaar Number is required.
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" class="form-control" name="dateOfBirth"
+                            formControlName="dateOfBirth" placeholder="Date of Birth (dd-mm-yyyy)"
+                            required="" />
+                        <div *ngIf="pensionDetails.dateOfBirth == ''">
+                            Date of Birth is required.
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <select name="typeOfPension" class="form-control" id="typeOfPension"
+                            formControlName="typeOfPension">
+                            <option value="" disabled selected>Select Pension Type</option>
+                            <option value="Family pension">Family Pension</option>
+                            <option value="Self pension">Self Pension</option>
+                        </select><br>
+                    </div>
+                    <div class="form-group">
+                        <div style="text-align:center;">
+                            <div *ngIf="pensionerError==true">
+                                <h4 style="color:red; text-align:center">Please enter Correct Details</h4><br>
+                            </div>
+                            <div class="col">
+                                <button type="submit" class="btn btn-success" [disabled]="pensionDetails.dateOfBirth == ''||pensionDetails.aadhaarNumber==''||
+                                 pensionDetails.panNumber == ''||pensionDetails.name == ''" value="Submit">Submit</button>
+                            </div>
+                            <div *ngIf="pensionDetails.dateOfBirth == ''||pensionDetails.aadhaarNumber==''||
+                            pensionDetails.panNumber == ''||pensionDetails.name == ''">
+                                All fields are mandatory
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+            <br>
+
+        </div>
+    </div>
+</div> -->
+
+<div class="card">
+    <form (ngSubmit)="onSubmit()" [formGroup]="pensionDetails" method="GET" name="pension" id="pension" class="form">
+    
+    <div class="card-header">
+        <strong>Enter Pensioner Details</strong>
+        <small>&nbsp;&nbsp;(All fields are mandatory)</small>
+    </div>
+    <div class="card-body">
+            <div class="row">
+                <div class="col-sm-12 col-md-6">
+                    <div class="form-group">
+                        <label for="name">Enter Pensioner Name</label>
+                        <input class="form-control" id="name" type="text" formControlName="name"
+                            placeholder="Enter Pensioner Name" required="" />
+                        <div class="text-danger" *ngIf="(pensionerSubmitted || pensionDetails.controls['name'].touched) && pensionDetails.controls['name'].invalid">
+                            Pensioner Name is required.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-sm-12 col-md-6">
+                    <div class="form-group">
+                        <label for="name">Enter PAN</label>
+                        <input class="form-control" id="name" type="text" formControlName="panNumber"
+                            placeholder="Enter PAN Number" required="" />
+                        <div class="text-danger" *ngIf="(pensionerSubmitted || pensionDetails.controls['panNumber'].touched) && pensionDetails.controls['panNumber'].invalid">
+                            Pan Number is required.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-sm-12 col-md-6">
+                    <div class="form-group">
+                        <label for="name">Enter Aadhaar Number</label>
+                        <input class="form-control" id="name" type="text" formControlName="aadhaarNumber"
+                            placeholder="Enter Aadhar Number" required="" />
+                        <div class="text-danger" *ngIf="(pensionerSubmitted || pensionDetails.controls['aadhaarNumber'].touched) && pensionDetails.controls['aadhaarNumber'].invalid">
+                            Aadhaar Number is required.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-sm-12 col-md-6">
+                    <div class="form-group">
+                        <label for="name">Enter Date of Birth (dd-mm-yyyy)</label>
+                        <input class="form-control" id="name" type="text" formControlName="dateOfBirth"
+                            placeholder="Date of Birth (dd-mm-yyyy)" required="" />
+                        <div class="text-danger" *ngIf="(pensionerSubmitted || pensionDetails.controls['dateOfBirth'].touched) && pensionDetails.controls['dateOfBirth'].invalid">
+                            Date of Birth is required.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-sm-12 col-md-6">
+                    <div class="form-group">
+                        <label for="ccnumber">Select Pension Type</label>
+                        <select name="typeOfPension" class="form-control" id="typeOfPension"
+                            formControlName="typeOfPension">
+                            <option value="" disabled selected>Select Pension Type</option>
+                            <option value="Family pension">Family Pension</option>
+                            <option value="Self pension">Self Pension</option>
+                        </select>
+                        <div class="text-danger" *ngIf="(pensionerSubmitted || pensionDetails.controls['typeOfPension'].touched) && pensionDetails.controls['typeOfPension'].invalid">
+                            Pension Type required.
+                        </div>
+                    </div>
+                </div>
+            </div>
+    </div>
+    <div class="card-footer">
+       
+        <button class="btn btn-sm btn-success float-right" type="submit"  value="Submit">
+            <i class="mdi mdi-gamepad-circle"></i> Continue</button>
+            <div *ngIf="pensionerError==true">
+                <h6 style="color:red; text-align:center">Please enter Correct Details</h6><br>
+            </div>
+        <button class="btn btn-sm btn-danger" type="reset">
+            <i class="mdi mdi-lock-reset"></i> Reset</button>
+    </div>
+</form>
+
+</div>

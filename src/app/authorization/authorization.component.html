@@ -1,0 +1,46 @@
+<article class="container">
+    <div class="row">
+        <div class="col-sm-8">
+            <div class="login-main">
+                <h4><i class="fa fa-dashboard"></i> Pensionier Login portal</h4>
+                <span>The Pensioners Helpline is a step in this direction</span>
+
+                <h4> <i class="fa fa-money"></i> 100% life security secure </h4>
+                <span>Anybody can know the status of any particular PPO by using link "know your status".</span>
+
+                </div>
+        </div>
+        <div class="col-sm-4">
+            <br>
+            <div class="login-card">
+        <form (ngSubmit)="onSubmit()" [formGroup]="loginForm" class="form">
+
+                <h3><i class="fa fa-shield"></i> Login now</h3>
+                <hr>
+                <div class="form-group">
+                    <label class="control-label" for="">Username</label>
+                    <input type="text" class="form-control" formControlName="userid" placeholder="Username">
+                </div>
+
+                <div class="form-group">
+                    <label class="control-label" for="">Password</label>
+                    <input type="text" formControlName="upassword" class="form-control" placeholder="Password">
+                </div>
+                <div *ngIf = "loginError!=''" style="color:red; text-align:center">
+                    <strong>{{loginError}}</strong><br>
+                </div>
+                <small>
+                    By clicking Sign In, you agree to our Terms and that you have read our
+                    Data Use Policy, including our Cookie Use.
+                </small>
+                <div style="height:10px;"></div>
+                <div class="form-group">
+                    <label class="control-label" for=""></label>
+                    <button type="submit" class="btn btn-primary">Sign In</button>
+                </div>
+</form>
+            </div>
+        </div>
+    </div>
+
+</article>

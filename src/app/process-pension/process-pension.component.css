@@ -1,0 +1,40 @@
+.info-card {
+    background: #fff;
+    padding: 50px 30px;
+    margin-bottom: 30px;
+    border-radius: 3px;
+    box-shadow: 0 10px 30px rgb(0 0 0 / 10%);
+}
+.info-card--success .info-card_icon {
+    border-color: #4caf50;
+}
+.info-card .info-card_icon {
+    height: 50px;
+    width: 50px;
+    margin: 0 auto 24px auto;
+    border: 2px solid #4caf50;
+    border-radius: 125px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+.info-card .info-card_icon .info-card_img-icon {
+    height: 38px;
+    width: 31px;
+    object-fit: contain;
+}
+
+
+.info-card .info-card_label {
+    margin-bottom: 15px;
+    text-align: center;
+}
+.info-card .info-card_message {
+    margin-bottom: 15px;
+}
+.info-card .btn {
+    background: #03a9f4;
+    border-color: #03a9f4;
+    box-shadow: 0 3px 10px rgb(0 0 0 / 10%);
+}
